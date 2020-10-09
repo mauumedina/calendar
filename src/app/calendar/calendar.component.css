@@ -1,0 +1,77 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+.calendarHeader{
+    width: 100%;
+    border:solid 3px rgb(0, 0, 0);
+    border-bottom: 0;
+    background-color: rgb(53, 56, 59);
+    margin: 0;
+}
+
+.dayHeader{
+    width: 98%;
+    border:solid 3px rgb(0, 0, 0);
+    margin-top: 0;
+    margin: 2px;
+    background-color: rgb(81, 87, 92);
+}
+
+.dayContent{
+    width: 98%;
+    padding-bottom: 25%;
+    border:solid 3px rgb(39, 39, 39);
+    margin: 2px;
+    background-color: rgb(190, 198, 204);
+}
+
+.currentMonth{
+    background-color: rgb(150, 161, 170);
+}
+
+.otherMonth{
+    background-color: rgb(130, 132, 134);
+    color: #535353;
+}
+
+.currentDay{
+    background-color: rgb(68, 81, 95);
+    color: #fff;
+}
+
+.headerReminder{
+    padding-bottom: 5px;
+    border-bottom: solid 3px;
+}
+.subtitle{
+    font-weight: bold;
+    font-size: large;
+    font-style: italic;
+}
+
+.subtitle-info{
+    color: #8b8b8b;
+}
+
+.subtitle-error{
+    color: #be0d0d;
+}
+
+
+.reminderTag{
+    background-color: #54966f;
+    border-radius: 50%;
+    margin: 0 5px;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    display: inline-flex;
+    color: #54966f;
+}
+
+.reminderTagContainer{
+    position: absolute;
+}

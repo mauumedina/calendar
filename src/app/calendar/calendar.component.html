@@ -1,0 +1,71 @@
+<div class="container bg-dark">
+    <div class="row calendarHeader">
+      <div class="col-md-2 text-center">
+        <button class="btn btn-default  text-white" (click)="_handlePreviousMonth()">Anterior</button>
+      </div>
+      <div class="col-md-8 text-center text-white">
+        <h3>{{title}}</h3>
+      </div>
+      <div class="col-md-2 text-center">
+        <button class="btn btn-default  text-white" (click)="_handleNextMonth()">Siguiente</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="wrapper ">
+          <div class="container dayHeader text-center  text-white">Domingo</div>
+          <div class="container dayHeader text-center  text-white">Lunes</div>
+          <div class="container dayHeader text-center  text-white">Martes</div>
+          <div class="container dayHeader text-center  text-white">Miércoles</div>
+          <div class="container dayHeader text-center  text-white">Jueves</div>
+          <div class="container dayHeader text-center  text-white">Viernes</div>
+          <div class="container dayHeader text-center  text-white">Sábado</div>
+          <div class="container dayContent text-center"  *ngFor="let i of numbersInMonth" (click)="_handleOnClick(i)" [ngClass]="{'otherMonth': i.type == 0, 'currentMonth':i.type == 1, 'currentDay': i.type == 3 }">
+            <h3>{{i.day}}</h3>
+            <div class="reminderTagContainer">
+              <div class="reminderTag" *ngFor="let x of i.rmnd">
+                .
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="container text-white">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="headerReminder">Añadir Nuevo Recordatorio:</h3>
+                <div class="row py-2">
+                    <div class="form-group col-md-6">
+                        <input type="text" placeholder="Titulo" (keyup)="onKey($event, 'title')" #inputTitle>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input  type="date" placeholder="Fecha" (change)="onChange($event)" #inputDate>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" placeholder="Lugar" (keyup)="onKey($event, 'place')" #inputPlace>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <button class="btn btn-dark" (click)="_addReminder()">Guardar Recordatorio</button>
+                    </div>
+                    <div class="col-md-12">
+                        <h3 class="subtitle" [ngClass]="{'subtitle-error': _subtitle.type == 'error', 'subtitle-info':_subtitle.type == 'info'}">{{_subtitle.text}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <app-reminders [reminders]="reminders"  (notifyDelete)="getChildObjDelete($event)" (notifyUpdate)="getChildObjUpdate($event)"></app-reminders>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="container text-white">
+        <h3 class="headerReminder">EL EURO HOY ({{this._dateSelected.getDate() + ' de ' + this.months[this._dateSelected.getMonth()] + ', ' + this._dateSelected.getFullYear()}})</h3>
+        <div class="col-md-6">
+          <h3>$ {{currentEuroMXN}} MXN </h3>
+        </div>
+      </div>
+    </div>
+  </div>

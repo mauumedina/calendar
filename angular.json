@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularCalendar"
+    }
+  },
+  "defaultProject": "angularCalendar",
+  "cli": {
+    "analytics": "afaa8157-caa0-4bfb-a079-60f2785a3c90"
+  }
 }
